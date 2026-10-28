@@ -3,7 +3,7 @@ def add(left, right):
 
 
 def subtract(left, right):
-    return left + right
+    return left - right
 
 
 def test_add():

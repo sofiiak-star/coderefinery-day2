@@ -6,7 +6,7 @@ def calc_subtotal(prices):
     if not prices:
         raise ValueError("Prices list cannot be empty")
     if any(not isinstance(p, (int, float)) or isinstance(p, bool) or p < 0 for p in prices):
-        raise ValueError("All prices must be positive numbers")
+        raise ValueError("All prices must be non-negative numbers")
     return sum(prices)
 
 def calc_discount(subtotal, discount_rate):
@@ -47,6 +47,7 @@ def print_receipt(prices, discount_rate=0, free_delivery_from=100, delivery_fee=
     ([100, 200, 50], 350),
     ([19.99, 10.1], 30.09),
     ([0.25, 0.5], 0.75),
+    ([0], 0),
 ],
 )
 def test_calc_subtotal(prices, expected):
